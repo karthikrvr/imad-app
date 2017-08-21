@@ -6,7 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
+var articles = {
+'article-one' : {
     title: "Article One | S.Karthik",
     heading: 'Article One',
     date:  'Aug 21, 2017',
@@ -20,6 +21,35 @@ var articleOne = {
             <p>
                  This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
             </p> ` 
+},
+'article-two' : { title: "Article Two | S.Karthik",
+    heading: 'Article Two',
+    date:  'Aug 22, 2017',
+    content:`
+           <p>
+                This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p>
+            <p>
+                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p>
+            <p>
+                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p> ` 
+},
+'article-three' : {title: "Article Three | S.Karthik",
+    heading: 'Article Three',
+    date:  'Aug 22, 2017',
+    content:`
+           <p>
+                This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p>
+            <p>
+                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p>
+            <p>
+                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            </p> ` 
+},
 };
 
 function createTemplate (data) {
@@ -63,8 +93,10 @@ var htmltemplate = `
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one',function(req, res) {
-    res.send(createTemplate(articleOne))
+app.get('/articleName',function(req, res) {  //articleName == article-one
+         //articles[articleName] == {} content object for article one
+         var articleName = req.parases.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
     
 app.get('/article-two',function(req, res) {
