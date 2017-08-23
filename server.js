@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var article = {
+var articles = {
 'article-one' : {
     title: "Article One | S.Karthik",
     heading: 'Article One',
@@ -23,12 +23,7 @@ var article = {
     content:`
            <p>
                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
+            
             </p> ` 
 },
 'article-three' : {title: "Article Three | S.Karthik",
@@ -37,13 +32,7 @@ var article = {
     content:`
            <p>
                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p> ` 
+           </p> ` 
 }
 };
 
@@ -89,7 +78,7 @@ var htmltemplate = `
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:article-one',function(req, res) {  
+app.get('/:articleName',function(req, res) {  
           //articleName == article-one
          //articles[articleName] == {} content object for article one
     var articleName = req.parases.articleName;
