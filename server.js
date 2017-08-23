@@ -14,13 +14,8 @@ var article = {
     content:`
            <p>
                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p>
-            <p>
-                 This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            </p> ` 
+            
+           </p> ` 
 },
 'article-two' : { title: "Article Two | S.Karthik",
     heading: 'Article Two',
@@ -87,14 +82,14 @@ var htmltemplate = `
     
 </html>
 `;
- return htmltemplate;
+ return htmlTemplate;
  
 }
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:articleName',function(req, res) {  
+app.get('/:article-one',function(req, res) {  
           //articleName == article-one
          //articles[articleName] == {} content object for article one
     var articleName = req.parases.articleName;
