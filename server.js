@@ -15,35 +15,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articles = {
-'article-one' : {
-    title: "Article One | S.Karthik",
-    heading: 'Article One',
-    date:  'Aug 21, 2017',
-    content:`
-           <p>
-                This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            
-           </p> ` 
-},
-'article-two' : { title: "Article Two | S.Karthik",
-    heading: 'Article Two',
-    date:  'Aug 22, 2017',
-    content:`
-           <p>
-                This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-            
-            </p> ` 
-},
-'article-three' : {title: "Article Three | S.Karthik",
-    heading: 'Article Three',
-    date:  'Aug 22, 2017',
-    content:`
-           <p>
-                This is the one of my first graph,This is the one of my first graph.This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph,This is the one of my first graph.
-           </p> ` 
-}
-};
+
 
 function createtemplate (data) {
     var title = data.title;
@@ -58,7 +30,7 @@ var htmltemplate = `
         <title>
            ${title}
         </title>
-        <meta name="viewport" content="width-device-width, initial-scale-1" />
+        <meta name="viewport" content="width-device-width, initial-scale-1" /> 
         <link href="/ui/style.css" rel="stylesheet" />
         
     </head>
